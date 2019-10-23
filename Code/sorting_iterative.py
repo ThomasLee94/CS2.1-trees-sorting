@@ -25,8 +25,15 @@ def is_sorted(items: [int]) -> bool:
 
 
 def bubble_sort(items: [int]) -> [int]:
-    """Sort given items by swapping adjacent items that are out of order, and
-    repeating until all items are in sorted order."""
+    """
+        Sort given items by swapping adjacent items that are out of order, and
+        repeating until all items are in sorted order.
+
+        Args:
+            list of ints.
+        Output:
+            ascending order list of ints.
+    """
 
     # TODO: Repeat until all items are in sorted order
     # TODO: Swap adjacent items that are out of order
