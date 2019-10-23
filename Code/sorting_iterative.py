@@ -2,7 +2,15 @@
 
 
 def is_sorted(items: [int]) -> bool:
-    """Return a boolean indicating whether given items are in sorted order."""
+    """ 
+        Return a boolean indicating whether given items are in sorted order. 
+
+        Args:
+            list of ints.
+        Output:
+            If given list is in ascending order, return True.
+            If not, return False.
+    """
 
     # runtime = O(n)
     # space = O(1)
