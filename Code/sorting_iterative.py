@@ -24,14 +24,22 @@ def is_sorted(items: [int]) -> bool:
     return True
 
 
-def bubble_sort(items):
+def bubble_sort(items: [int]) -> [int]:
     """Sort given items by swapping adjacent items that are out of order, and
-    repeating until all items are in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    repeating until all items are in sorted order."""
+
     # TODO: Repeat until all items are in sorted order
     # TODO: Swap adjacent items that are out of order
-
+    
+    while not is_sorted(items):
+        for i in range(len(items)):
+            if items[i] > items[i+1]:
+                current = items[i]
+                next = items[i+1]
+                items[i] = next
+                items[i+1] = current
+                continue
+    return items
 
 def selection_sort(items):
     """Sort given items by finding minimum item, swapping it with first
