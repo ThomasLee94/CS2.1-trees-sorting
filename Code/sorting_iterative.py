@@ -1,11 +1,19 @@
 #!python
 
 
-def is_sorted(items):
-    """Return a boolean indicating whether given items are in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Check that all adjacent items are in order, return early if so
+def is_sorted(items: [int]) -> bool:
+    """Return a boolean indicating whether given items are in sorted order."""
+
+    # runtime = O(n)
+    # space = O(1)
+    
+    # -1 to account for index out of range
+    for i in range(len(items)-1):
+        # if current element is > than next
+        if items[i] > items[i+1]:
+            return False
+
+    return True
 
 
 def bubble_sort(items):
