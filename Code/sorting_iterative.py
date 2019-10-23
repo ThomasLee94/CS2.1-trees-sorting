@@ -35,17 +35,16 @@ def bubble_sort(items: [int]) -> [int]:
             ascending order list of ints.
     """
 
-    # TODO: Repeat until all items are in sorted order
-    # TODO: Swap adjacent items that are out of order
-    
-    while not is_sorted(items):
-        for i in range(len(items)):
-            if items[i] > items[i+1]:
-                current = items[i]
-                next = items[i+1]
-                items[i] = next
-                items[i+1] = current
-                continue
+    # runtime = O(n^2)
+    # space = O(1)
+
+    for i in range(len(items)):
+        if items[i] > items[i+1]:
+            current = items[i]
+            next = items[i+1]
+            items[i] = next
+            items[i+1] = current
+            continue
     return items
 
 def selection_sort(items):
