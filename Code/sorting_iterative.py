@@ -38,13 +38,19 @@ def bubble_sort(items: [int]) -> [int]:
     # runtime = O(n^2)
     # space = O(1)
 
-    for i in range(len(items)):
-        if items[i] > items[i+1]:
-            current = items[i]
-            next_ = items[i+1]
-            items[i] = next_
-            items[i+1] = current
-            continue
+    # counter
+    num_unsorted_items = len(items)-1
+
+    while num_unsorted_items != len(items):
+        # after first loop, last element will always be the greatest.
+        for i in range(num_unsorted_items):
+            # if element is out of place
+            if items[i] > items[i+1]:
+                # adjacent swap
+                items[i], items[i+1] = items[i+1], items[i]
+        # increment counter
+        num_unsorted_items -= 1
+
     return items
 
 
@@ -92,30 +98,3 @@ def insertion_sort(items: [int]) -> [int]:
     #         prev = items[i]
     #      # iteration has already started
     #     else:
-
-    # iterate through each item in items keeping track of their index
-    for i, item in enumerate(items):
-        # check if prev is none
-        if prev is None:
-            # if so prev is item and continue
-            prev = item
-        # otherwise
-        else:
-            # check if the item is greater than the prev
-            if item > prev:
-                # if so set prev to item and continue
-                prev = item
-            # otherwise we have to find its new place in the sorted part and insert it
-            else:
-                # iterate through the sorted items in sorted part
-                for j in range(i):
-                    # if the sorted item is less than the item
-                    if item < items[j]:
-                        # inser the item in its position
-                        items.insert(j, item)
-                        # remove the item from its original position
-                        items.pop(i + 1)
-                        # stop looking for a position
-                        break
-                # set prev to the last sorted item
-                prev = items[i]
