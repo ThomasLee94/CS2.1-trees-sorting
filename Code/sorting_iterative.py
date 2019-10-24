@@ -43,6 +43,7 @@ def bubble_sort(items: [int]) -> [int]:
 
     while num_unsorted_items != len(items):
         # after first loop, last element will always be the greatest.
+        # num_unsorted_items is essentially the num of elements being ignored from the end
         for i in range(num_unsorted_items):
             # if element is out of place
             if items[i] > items[i+1]:
