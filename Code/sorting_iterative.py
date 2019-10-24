@@ -61,7 +61,7 @@ def selection_sort(items: [int]) -> [int]:
     # loop through list
     for i in range(len(items)):
         # find index of min value in given list from i index
-        min_val_index = min(items[i:]).index()
+        min_val_index = items[i:].index(min(items[i:])) + i
 
         # once min val is found, swap with current index
         items[i], items[min_val_index] = items[min_val_index], items[i]
@@ -69,11 +69,22 @@ def selection_sort(items: [int]) -> [int]:
     return items
 
 
-def insertion_sort(items):
-    """Sort given items by taking first unsorted item, inserting it in sorted
-    order in front of items, and repeating until all items are in order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+def insertion_sort(items: [int]) -> [int]:
+    """
+        Sort given items by taking first unsorted item, inserting it in sorted
+        order in front of items, and repeating until all items are in order.
+
+        Args:
+            list of ints.
+        Output:
+            list of ints in ascending order.
+    """
+
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
+
+    # prev = None
+
+    # for i, element in enumerate(items):
+    #     if prev is None:
