@@ -50,17 +50,23 @@ def bubble_sort(items: [int]) -> [int]:
 
 def selection_sort(items: [int]) -> [int]:
     """
-        Sort given items by finding minimum item, swapping it with first
-        unsorted item, and repeating until all items are in sorted order.
+        Sort by replacing current item in a loop with the lowest valued item.
 
         Args:
             a list of unsorted ints.
         Output:
             ascending order list of ints.
     """
-    # TODO: Repeat until all items are in sorted order
-    # TODO: Find minimum item in unsorted items
-    # TODO: Swap it with first unsorted item
+
+    # loop through list
+    for i in range(len(items)):
+        # find index of min value in given list from i index
+        min_val_index = min(items[i:]).index()
+
+        # once min val is found, swap with current index
+        items[i], items[min_val_index] = items[min_val_index], items[i]
+
+    return items
 
 
 def insertion_sort(items):
