@@ -41,8 +41,8 @@ def bubble_sort(items: [int]) -> [int]:
     for i in range(len(items)):
         if items[i] > items[i+1]:
             current = items[i]
-            next = items[i+1]
-            items[i] = next
+            next_ = items[i+1]
+            items[i] = next_
             items[i+1] = current
             continue
     return items
@@ -84,7 +84,38 @@ def insertion_sort(items: [int]) -> [int]:
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
 
-    # prev = None
+    prev = None
 
     # for i, element in enumerate(items):
+    #     # start of iteration
     #     if prev is None:
+    #         prev = items[i]
+    #      # iteration has already started
+    #     else:
+
+    # iterate through each item in items keeping track of their index
+    for i, item in enumerate(items):
+        # check if prev is none
+        if prev is None:
+            # if so prev is item and continue
+            prev = item
+        # otherwise
+        else:
+            # check if the item is greater than the prev
+            if item > prev:
+                # if so set prev to item and continue
+                prev = item
+            # otherwise we have to find its new place in the sorted part and insert it
+            else:
+                # iterate through the sorted items in sorted part
+                for j in range(i):
+                    # if the sorted item is less than the item
+                    if item < items[j]:
+                        # inser the item in its position
+                        items.insert(j, item)
+                        # remove the item from its original position
+                        items.pop(i + 1)
+                        # stop looking for a position
+                        break
+                # set prev to the last sorted item
+                prev = items[i]
