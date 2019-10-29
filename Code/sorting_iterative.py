@@ -43,7 +43,8 @@ def bubble_sort(items: [int]) -> [int]:
 
     while num_unsorted_items != len(items):
         # after first loop, last element will always be the greatest.
-        # num_unsorted_items is essentially the num of elements being ignored from the end
+        # num_unsorted_items is essentially the num of elements being ignored
+        # from the end
         for i in range(num_unsorted_items):
             # if element is out of place
             if items[i] > items[i+1]:
@@ -64,6 +65,8 @@ def selection_sort(items: [int]) -> [int]:
         Output:
             ascending order list of ints.
     """
+
+    # runtime = O(n^2)
 
     # loop through list
     for i in range(len(items)):
@@ -91,11 +94,17 @@ def insertion_sort(items: [int]) -> [int]:
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
 
-    prev = None
+    for i in range(1, len(items)):
+        # set current value to index i (1)
+        current_val = items[i]
+        # while previous element is *not* in sorted order & index is > 0
+        while items[i-1] > current_val and i > 0:
+            # set current value to previous value
+            items[i] = items[i-1]
+            # decrement index
+            i = i-1
+        # if current_val was not in sorted order, it will get replaced because
+        # i was decremented. If not, loop continues.
+        items[i] = current_val
 
-    # for i, element in enumerate(items):
-    #     # start of iteration
-    #     if prev is None:
-    #         prev = items[i]
-    #      # iteration has already started
-    #     else:
+    return items
