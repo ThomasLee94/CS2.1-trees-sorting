@@ -1,14 +1,39 @@
 #!python
 
 
-def merge(items1, items2):
-    """Merge given lists of items, each assumed to already be in sorted order,
-    and return a new list containing all items in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+def merge(items_1: [int], items_2: [int]) -> [int]:
+    """
+      Merge given lists of items, each assumed to already be in sorted order,
+      and return a new list containing all items in sorted order. The 2 given
+      given lists need not be the same length.
+
+      Args:
+          2 sorted lists of ints.
+      Output:
+          A merged list of sorted ints.
+    """
+    # Running time: O(n*m)
+    # Memory usage: O(n+m)
     # TODO: Repeat until one list is empty
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list
+
+    output_list = list()
+
+    for element_1, element_2 in map(None, items_1, items_2):
+        # for the case of equal length lists
+        while element_1 and element_2 is not None:
+            if element_1 > element_2:
+                output_list.append(element_2)
+                output_list.append(element_1)
+            if element_1 < element_2:
+                output_list.append(element_1)
+                output_list.append(element_2)
+
+        # for the case of unequal length of lists
+        output_list.append(element for element in (
+            element_1, element_2) is not None)
+    return output_list
 
 
 def split_sort_merge(items):
