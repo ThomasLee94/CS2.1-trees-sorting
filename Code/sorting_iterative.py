@@ -94,6 +94,7 @@ def insertion_sort(items: [int]) -> [int]:
         # set current value to index i (1)
         current_val = items[i]
         # while previous element is *not* in sorted order & index is > 0
+        # i will represent the range of the "sorted" section of the list
         while items[i-1] > current_val and i > 0:
             # set current value to previous value
             items[i] = items[i-1]
