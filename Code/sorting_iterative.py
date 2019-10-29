@@ -90,10 +90,6 @@ def insertion_sort(items: [int]) -> [int]:
             list of ints in ascending order.
     """
 
-    # TODO: Repeat until all items are in sorted order
-    # TODO: Take first unsorted item
-    # TODO: Insert it in sorted order in front of items
-
     for i in range(1, len(items)):
         # set current value to index i (1)
         current_val = items[i]
