@@ -43,12 +43,21 @@ def merge(items_1: [int], items_2: [int]) -> [int]:
     return merged_items
 
 
-def split_sort_merge(items):
-    """Sort given items by splitting list into two approximately equal halves,
-    sorting each with an iterative sorting algorithm, and merging results into
-    a list in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+def split_sort_merge(items: [int]):
+    """
+        Sort given items by splitting list into two approximately equal halves,
+        sorting each with an iterative sorting algorithm, and merging results
+        into a list in sorted order.
+
+        Args:
+            list of ints
+        Output:
+            A list in ascending sorted order.
+
+    """
+    # Running time: ??? Why and under what conditions?
+    # Memory usage: ??? Why and under what conditions?
+
     # TODO: Split items list into approximately equal halves
     # TODO: Sort each half using any other sorting algorithm
     # TODO: Merge sorted halves into one list in sorted order
