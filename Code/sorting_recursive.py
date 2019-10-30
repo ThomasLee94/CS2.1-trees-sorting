@@ -14,9 +14,6 @@ def merge(items_1: [int], items_2: [int]) -> [int]:
     """
     # Running time: O(n*m)
     # Memory usage: O(n+m)
-    # TODO: Repeat until one list is empty
-    # TODO: Find minimum item in both lists and append it to new list
-    # TODO: Append remaining items in non-empty list to new list
 
     merged_items = list()
 
