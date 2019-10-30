@@ -45,7 +45,7 @@ def merge(items_1: [int], items_2: [int]) -> [int]:
     return merged_items
 
 
-def split_sort_merge(items: [int]):
+def split_sort_merge(items: [int]) -> [int]:
     """
         Sort given items by splitting list into two approximately equal halves,
         sorting each with an iterative sorting algorithm, and merging results
@@ -65,7 +65,7 @@ def split_sort_merge(items: [int]):
     first_half = items[middle_index:]
     second_half = items[:middle_index]
 
-    # sort both halves
+    # sort both halves - sort alogrithm is replacable.
     first_half.bubble_sort()
     second_half.bubble_sort()
 
@@ -74,15 +74,35 @@ def split_sort_merge(items: [int]):
     return merged_items
 
 
-def merge_sort(items):
-    """Sort given items by splitting list into two approximately equal halves,
-    sorting each recursively, and merging results into a list in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Check if list is so small it's already sorted (base case)
-    # TODO: Split items list into approximately equal halves
-    # TODO: Sort each half by recursively calling merge sort
-    # TODO: Merge sorted halves into one list in sorted order
+def merge_sort(items: [int]) -> [int]:
+    """
+        Sort given items by splitting list into two approximately equal
+        halves, sorting each recursively, and merging results into a list
+        in sorted order.
+
+        Args:
+            An unsorted list of ints.
+
+        Output:
+            A sorted list of ints.
+    """
+    # Running time: ??? Why and under what conditions?
+    # Memory usage: ??? Why and under what conditions?
+
+    # base case: list is so small it's already sorted
+    if len(items) <= 1:
+        return items
+
+    # split items list into approximately equal halves
+    else:
+        middle = len(items) // 2
+        first_half = items[:middle]
+        second_half = items[middle:]
+        # Sort each half by recursively calling merge sort
+        sorted_first_half = merge_sort(first_half)
+        sorted_second_half = merge_sort(second_half)
+        # Merge sorted halves into one list in sorted order
+        return merge(sorted_first_half, sorted_second_half)
 
 
 def partition(items, low, high):
