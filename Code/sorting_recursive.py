@@ -33,7 +33,7 @@ def merge(items_1: [int], items_2: [int]) -> [int]:
             merged_items.append(items_2[i_2])
             # increment index
             i_2 += 1
-        # increment both indicies
+
     # when we have reached the end of one of the lists (unequal lengths)
     if i_1 != len(items_1):
         merged_items += items_1[i_1:]
