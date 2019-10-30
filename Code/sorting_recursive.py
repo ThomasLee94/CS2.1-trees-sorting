@@ -36,6 +36,7 @@ def merge(items_1: [int], items_2: [int]) -> [int]:
 
     # when we have reached the end of one of the lists (unequal lengths)
     if i_1 != len(items_1):
+        # append remaining elemnts from index i_1 in items_1
         merged_items += items_1[i_1:]
     else:
         merged_items += items_2[i_2:]
