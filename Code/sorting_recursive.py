@@ -42,20 +42,6 @@ def merge(items_1: [int], items_2: [int]) -> [int]:
     return merged_items
 
 
-def test_merge():
-    a = [1, 3, 5]
-    b = [2, 4, 6]
-    ans = merge(a, b)
-    print(ans)
-    if ans == [1, 2, 3, 4, 5, 6]:
-        print(True)
-    else:
-        print('False')
-
-
-test_merge()
-
-
 def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each with an iterative sorting algorithm, and merging results into
