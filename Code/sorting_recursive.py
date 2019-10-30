@@ -1,5 +1,7 @@
 #!python
 
+from sorting_iterative import bubble_sort
+
 
 def merge(items_1: [int], items_2: [int]) -> [int]:
     """
@@ -58,9 +60,18 @@ def split_sort_merge(items: [int]):
     # Running time: ??? Why and under what conditions?
     # Memory usage: ??? Why and under what conditions?
 
-    # TODO: Split items list into approximately equal halves
-    # TODO: Sort each half using any other sorting algorithm
-    # TODO: Merge sorted halves into one list in sorted order
+    # split list into rough halves
+    middle_index = len(items) // 2
+    first_half = items[middle_index:]
+    second_half = items[:middle_index]
+
+    # sort both halves
+    first_half.bubble_sort()
+    second_half.bubble_sort()
+
+    # merge both halves
+    merged_items = merge(first_half, second_half)
+    return merged_items
 
 
 def merge_sort(items):
