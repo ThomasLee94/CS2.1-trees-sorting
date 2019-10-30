@@ -18,22 +18,45 @@ def merge(items_1: [int], items_2: [int]) -> [int]:
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list
 
-    output_list = list()
+    merged_items = list()
 
-    for element_1, element_2 in map(None, items_1, items_2):
-        # for the case of equal length lists
-        while element_1 and element_2 is not None:
-            if element_1 > element_2:
-                output_list.append(element_2)
-                output_list.append(element_1)
-            if element_1 < element_2:
-                output_list.append(element_1)
-                output_list.append(element_2)
+    # indicies for both lists
+    i_1 = 0
+    i_2 = 0
 
-        # for the case of unequal length of lists
-        output_list.append(element for element in (
-            element_1, element_2) is not None)
-    return output_list
+    while i_1 < len(items_1) and i_2 < len(items_2):
+        # case: element at index i_1 in items_1 is less than element at index
+        # i_2 in items_2
+        if items_1[i_1] < items_2[i_2]:
+            merged_items.append(items_1[i_1])
+            # increment index
+            i_1 += 1
+        # vice versa
+        else:
+            merged_items.append(items_2[i_2])
+            # increment index
+            i_2 += 1
+        # increment both indicies
+    # when we have reached the end of one of the lists (unequal lengths)
+    if i_1 != len(items_1):
+        merged_items += items_1[i_1:]
+    else:
+        merged_items += items_2[i_2:]
+    return merged_items
+
+
+def test_merge():
+    a = [1, 3, 5]
+    b = [2, 4, 6]
+    ans = merge(a, b)
+    print(ans)
+    if ans == [1, 2, 3, 4, 5, 6]:
+        print(True)
+    else:
+        print('False')
+
+
+test_merge()
 
 
 def split_sort_merge(items):
