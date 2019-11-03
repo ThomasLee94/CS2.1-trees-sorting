@@ -108,14 +108,18 @@ def merge_sort(items: [int]) -> [int]:
 def partition(items: [int], low: int, high: int):
     """
         Return index `p` after in-place partitioning given items in range
-        `[low...high]` by choosing a pivot (low) from
-        that range, moving pivot into index `p`, items less than pivot into range
+        `[low...high]` by choosing a pivot (low) from that range, moving
+        pivot into index `p`, items less than pivot into range
         `[low...p-1]`, and items greater than pivot into range `[p+1...high]`.
 
         Args:
             items: list of ints.
             low: pivot.
             high: length of list.
+        Output:
+            list of ints sorted in relation to the pivot; any value is that is
+            smaller than the pivot is placed on the left side in no sorted
+            order. Vice versa for values higher than the pivot.
 
     """
 
@@ -128,8 +132,20 @@ def partition(items: [int], low: int, high: int):
     # TODO: Move items greater than pivot into back of range [p+1...high]
     # TODO: Move pivot item into final position [p] and return index p
 
-    # split list into rough halves
-    middle_index = len(items) // 2
+    # choosing pivot
+    pivot_val = items[low]
+    # the first value after the pivot
+    item_from_left = low + 1
+    # iterate through range of items [low - high]
+    for i in range(low+1, high):
+        if items[i] < pivot_val:
+            items[item_from_left], items[i] = items[i], items[item_from_left]
+            item_from_left += 1
+
+    # swap pivot value
+    pivot_val, item_from_left = item_from_left, pivot_val
+
+    return item_from_left
 
 
 def quick_sort(items, low=None, high=None):
