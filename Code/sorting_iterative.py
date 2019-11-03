@@ -24,7 +24,7 @@ def is_sorted(items: [int]) -> bool:
     return True
 
 
-def bubble_sort(items: [int]) -> [int]:
+def bubble_sort(items: [int]):
     """
         Sort given items by swapping adjacent items that are out of order, and
         repeating until all items are in sorted order.
@@ -53,10 +53,8 @@ def bubble_sort(items: [int]) -> [int]:
         # increment counter
         num_unsorted_items -= 1
 
-    return items
 
-
-def selection_sort(items: [int]) -> [int]:
+def selection_sort(items: [int]):
     """
         Sort by replacing current item in a loop with the lowest valued item.
 
@@ -76,10 +74,8 @@ def selection_sort(items: [int]) -> [int]:
         # once min val is found, swap with current index
         items[i], items[min_val_index] = items[min_val_index], items[i]
 
-    return items
 
-
-def insertion_sort(items: [int]) -> [int]:
+def insertion_sort(items: [int]):
     """
         Sort given items by taking first unsorted item, inserting it in sorted
         order in front of items, and repeating until all items are in order.
@@ -103,5 +99,3 @@ def insertion_sort(items: [int]) -> [int]:
         # if current_val was not in sorted order, it will get replaced because
         # i was decremented. If not, loop continues.
         items[i] = current_val
-
-    return items
