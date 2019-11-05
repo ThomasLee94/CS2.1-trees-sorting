@@ -86,8 +86,10 @@ def merge_sort(items: [int]) -> [int]:
         Output:
             A sorted list of ints.
     """
-    # Running time: ??? Why and under what conditions?
-    # Memory usage: ??? Why and under what conditions?
+    # Running time: O(n log(n)). The list is split in half every time (log(n)). The halves
+    # are sorted to take n/2.
+    # Memory usage: O(n log(n)). List gets split into two lists (2n), this happens log(n) times.
+    # this scales to n log(n).
 
     # base case: list is so small it's already sorted
     if len(items) <= 1:
@@ -155,9 +157,9 @@ def quick_sort(items: [int], low=None, high=None):
 
     """
 
-    # TODO: Best case running time: ??? Why and under what conditions?
-    # TODO: Worst case running time: ??? Why and under what conditions?
-    # TODO: Memory usage: ??? Why and under what conditions?
+    # Best case running time: ??? Why and under what conditions?
+    # Worst case running time: ??? Why and under what conditions?
+    # Memory usage: ??? Why and under what conditions?
 
     # case: if high and low range bounds have default values
     if high is None:
