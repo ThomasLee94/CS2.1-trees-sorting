@@ -132,20 +132,21 @@ def partition(items: [int], low: int, high: int):
     # TODO: Move items greater than pivot into back of range [p+1...high]
     # TODO: Move pivot item into final position [p] and return index p
 
-    # choosing pivot
+    # "low" pivot value
     pivot_val = items[low]
-    # the first value after the pivot
-    item_from_left = low + 1
-    # iterate through range of items [low - high]
-    for i in range(low+1, high):
+    # index after pivot value
+    first_index = low + 1
+    # Loop through all items in range of first_index - high
+    for i in range(first_index, high):
+        # Move items less than pivot into front of range [low...p-1]
         if items[i] < pivot_val:
-            items[item_from_left], items[i] = items[i], items[item_from_left]
-            item_from_left += 1
-
-    # swap pivot value
-    pivot_val, item_from_left = item_from_left, pivot_val
-
-    return item_from_left
+            # swap values
+            items[first_index], items[i] = items[i], items[first_index]
+            first_index += 1
+    # Move pivot item into final position and return its position
+    items[first_index - 1], items[low] = items[low], items[first_index - 1]
+    # return the index of pivot
+    return first_index - 1
 
 
 def quick_sort(items, low=None, high=None):
