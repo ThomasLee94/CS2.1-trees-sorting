@@ -143,12 +143,24 @@ def partition(items: [int], low: int, high: int):
     return first_index - 1
 
 
-def quick_sort(items, low=None, high=None):
-    """Sort given items in place by partitioning items in range `[low...high]`
-    around a pivot item and recursively sorting each remaining sublist range.
+def quick_sort(items: [int], low=None, high=None):
+    """
+        Sort given items in place by partitioning items in range `[low...high]`
+        around a pivot item and recursively sorting each remaining sublist range.
+
+        Arts:
+            items: list of ints.
+            low: pivot.
+            high: length of list.
+
+        Output:
+            sorted list of ints in ascending order.
+
+    """
     TODO: Best case running time: ??? Why and under what conditions?
     TODO: Worst case running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
+
     # TODO: Check if high and low range bounds have default values (not given)
     # TODO: Check if list or range is so small it's already sorted (base case)
     # TODO: Partition items in-place around a pivot and get index of pivot
