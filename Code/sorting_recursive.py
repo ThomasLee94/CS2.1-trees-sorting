@@ -105,7 +105,7 @@ def merge_sort(items: [int]) -> [int]:
         return merge(sorted_first_half, sorted_second_half)
 
 
-def partition(items: [int], low: int, high: int):
+def partition(items: [int], low: int, high: int) -> int:
     """
         Return index `p` after in-place partitioning given items in range
         `[low...high]` by choosing a pivot (low) from that range, moving
