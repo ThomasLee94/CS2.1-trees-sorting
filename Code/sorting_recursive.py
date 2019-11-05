@@ -157,11 +157,21 @@ def quick_sort(items: [int], low=None, high=None):
             sorted list of ints in ascending order.
 
     """
-    TODO: Best case running time: ??? Why and under what conditions?
-    TODO: Worst case running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
 
-    # TODO: Check if high and low range bounds have default values (not given)
-    # TODO: Check if list or range is so small it's already sorted (base case)
-    # TODO: Partition items in-place around a pivot and get index of pivot
-    # TODO: Sort each sublist range by recursively calling quick sort
+    # TODO: Best case running time: ??? Why and under what conditions?
+    # TODO: Worst case running time: ??? Why and under what conditions?
+    # TODO: Memory usage: ??? Why and under what conditions?
+
+    # case: if high and low range bounds have default values
+    if high is None:
+        high = len(items)
+    # base case: Check if list or range is so small it's already sorted
+    if high - low <= 1:
+        return
+
+    # Partition items in-place around a pivot and get index of pivot
+    pivot = partition(items, low, high)
+
+    # Sort each sublist range by recursively calling quick sort
+    quick_sort(items, low, pivot)
+    quick_sort(items, pivot + 1, high)
