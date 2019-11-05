@@ -123,8 +123,8 @@ def partition(items: [int], low: int, high: int) -> int:
 
     """
 
-    # TODO: Running time: ??? Why and under what conditions?
-    # TODO: Memory usage: ??? Why and under what conditions?
+    # Running time: O(n)
+    # Memory usage: O(1)
 
     # "low" pivot value
     pivot_val = items[low]
