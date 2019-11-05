@@ -153,9 +153,6 @@ def quick_sort(items: [int], low=None, high=None):
             low: pivot.
             high: length of list.
 
-        Output:
-            sorted list of ints in ascending order.
-
     """
 
     # TODO: Best case running time: ??? Why and under what conditions?
