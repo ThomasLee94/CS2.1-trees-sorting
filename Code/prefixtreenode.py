@@ -39,10 +39,14 @@ class PrefixTreeNode:
 
         return counter
 
-    def has_child(self, character):
+    def has_child(self, character: str) -> bool:
         """Return True if this prefix tree node has a child node that
         represents the given character amongst its children."""
-        # TODO: Check if given character is amongst this node's children
+
+        for key, _ in self.children:
+            if key == character:
+                return True
+        return False
 
     def get_child(self, character):
         """Return this prefix tree node's child node that represents the given
