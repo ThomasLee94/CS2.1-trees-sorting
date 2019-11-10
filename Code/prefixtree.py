@@ -49,7 +49,10 @@ class PrefixTree:
 
     def insert(self, string):
         """Insert the given string into this prefix tree."""
-        # TODO
+
+        # case: prefix tree is empty
+        if self.is_empty():
+            root = PrefixTreeNode()
 
     def _find_node(self, string):
         """Return a tuple containing the node that terminates the given string
