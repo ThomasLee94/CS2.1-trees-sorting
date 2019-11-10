@@ -24,7 +24,7 @@ class PrefixTreeNode:
     def is_terminal(self) -> bool:
         """Return True if this prefix tree node terminates a string."""
 
-        if self.children is None:
+        if self.children.CHILDREN_TYPE() is None:
             return True
         return False
 
