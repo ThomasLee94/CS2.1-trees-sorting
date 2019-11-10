@@ -21,9 +21,12 @@ class PrefixTreeNode:
         # Marks if this node terminates a string in the prefix tree
         self.terminal = False
 
-    def is_terminal(self):
+    def is_terminal(self) -> bool:
         """Return True if this prefix tree node terminates a string."""
-        # TODO: Determine if this node is terminal
+
+        if self.children is None:
+            return True
+        return False
 
     def num_children(self):
         """Return the number of children nodes this prefix tree node has."""
