@@ -28,11 +28,16 @@ class PrefixTreeNode:
             return True
         return False
 
-    def num_children(self):
+    def num_children(self) -> int:
         """Return the number of children nodes this prefix tree node has."""
 
+        counter = 0
+
         if self.is_terminal():
-            pass
+            for key in self.children.keys():
+                counter += 1
+
+        return counter
 
     def has_child(self, character):
         """Return True if this prefix tree node has a child node that
