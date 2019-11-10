@@ -33,9 +33,12 @@ class PrefixTree:
         """Return a string representation of this prefix tree."""
         return f'PrefixTree({self.strings()!r})'
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """Return True if this prefix tree is empty (contains no strings)."""
-        # TODO
+
+        if self.root is None:
+            return True
+        return False
 
     def contains(self, string):
         """Return True if this prefix tree contains the given string."""
