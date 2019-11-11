@@ -40,19 +40,28 @@ class PrefixTree:
             return True
         return False
 
-    def contains(self, string: str) -> bool:
+    def contains(self, word: str) -> bool:
         """Return True if this prefix tree contains the given string."""
 
-        node_data = self._find_node(string)
+        node_data = self._find_node(word)
 
         return node_data is not None
 
-    def insert(self, string):
+    def insert(self, word: str):
         """Insert the given string into this prefix tree."""
 
-        # case: prefix tree is empty
-        if self.is_empty():
-            root = PrefixTreeNode()
+        node = self.root
+
+        for letter in word:
+            # case: if the letter does not exist as a child from current node
+            if not node.has_child(letter):
+                # add child node to current node
+                new_child_node = PrefixTreeNode(letter)
+                node.add_child(letter, new_child_node)
+            # traverse down
+            node = node.get_child(letter)
+        # set node terminal to True at the end of word iteration
+        node.terminal = True
 
     def _find_node(self, string):
         """Return a tuple containing the node that terminates the given string
