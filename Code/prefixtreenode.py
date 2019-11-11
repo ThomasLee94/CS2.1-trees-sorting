@@ -56,11 +56,12 @@ class PrefixTreeNode:
         else:
             raise ValueError(f'No child exists for character {character!r}')
 
-    def add_child(self, character, child_node):
+    def add_child(self, character: str, child_node: object):
         """Add the given character and child node as a child of this node, or
         raise ValueError if given character is amongst this node's children."""
+
         if not self.has_child(character):
-            # TODO: Add given character and child node to this node's children
+            self.children[character] = child_node
         else:
             raise ValueError(f'Child exists for character {character!r}')
 
