@@ -99,12 +99,12 @@ class PrefixTree:
 
         return completions
 
-    def strings(self):
+    def strings(self) -> [str]:
         """Return a list of all strings stored in this prefix tree."""
 
         return self.complete
 
-    def _traverse(self, node, prefix, anonymous_func):
+    def _traverse(self, node: object, prefix: str, anonymous_func):
         """Traverse this prefix tree with recursive depth-first traversal.
         Start at the given node and visit each node with the given function."""
 
