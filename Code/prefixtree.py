@@ -104,17 +104,17 @@ class PrefixTree:
 
         return self.complete
 
-    def _traverse(self, node: object, prefix: str, anonymous_func):
+    def _traverse(self, node: object, prefix: str, visit):
         """Traverse this prefix tree with recursive depth-first traversal.
         Start at the given node and visit each node with the given function."""
 
         # execute anonymous func if it is terminal
         if node.is_terminal():
-            anonymous_func(prefix)
+            visit(prefix)
 
         for _, child in node.children:
             # concat chars
-            self._traverse(child, prefix + child.character, anonymous_func)
+            self._traverse(child, prefix + child.character, visit)
 
 
 def create_prefix_tree(strings):
