@@ -108,10 +108,15 @@ class PrefixTree:
         all_strings = []
         # TODO
 
-    def _traverse(self, node, prefix, visit):
+    def _traverse(self, node, prefix, anonymous_func):
         """Traverse this prefix tree with recursive depth-first traversal.
         Start at the given node and visit each node with the given function."""
-        # TODO
+
+        # execute anonymous func
+        anonymous_func(node, prefix)
+        for _, child in node.children:
+            # concat chars
+            self._traverse(child, prefix + child.character, anonymous_func)
 
 
 def create_prefix_tree(strings):
