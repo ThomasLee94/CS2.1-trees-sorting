@@ -95,10 +95,7 @@ class PrefixTree:
         # init node & depth
         node, _ = self._find_node(prefix)
 
-        # return all terminal chars from starting node
-        for _, child in node.children:
-            if child.is_terminal():
-                completions.append(child.character)
+        self._traverse(node, prefix, completions.append)
 
         return completions
 
@@ -106,14 +103,15 @@ class PrefixTree:
         """Return a list of all strings stored in this prefix tree."""
         # Create a list of all strings in prefix tree
         all_strings = []
-        # TODO
 
     def _traverse(self, node, prefix, anonymous_func):
         """Traverse this prefix tree with recursive depth-first traversal.
         Start at the given node and visit each node with the given function."""
 
-        # execute anonymous func
-        anonymous_func(node, prefix)
+        # execute anonymous func if it is terminal
+        if node.is_terminal():
+            anonymous_func(prefix)
+
         for _, child in node.children:
             # concat chars
             self._traverse(child, prefix + child.character, anonymous_func)
