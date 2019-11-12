@@ -85,12 +85,22 @@ class PrefixTree:
                 break
         return node, depth
 
-    def complete(self, prefix):
+    def complete(self, prefix: str) -> [str]:
         """Return a list of all strings stored in this prefix tree that start
         with the given prefix string."""
+
         # Create a list of completions in prefix tree
         completions = []
-        # TODO
+
+        # init node & depth
+        node, _ = self._find_node(prefix)
+
+        # return all terminal chars from starting node
+        for _, child in node.children:
+            if child.is_terminal():
+                completions.append(child.character)
+
+        return completions
 
     def strings(self):
         """Return a list of all strings stored in this prefix tree."""
