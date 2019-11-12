@@ -63,17 +63,27 @@ class PrefixTree:
         # set node terminal to True at the end of word iteration
         node.terminal = True
 
-    def _find_node(self, string):
+    def _find_node(self, word: str) -> (object, int):
         """Return a tuple containing the node that terminates the given string
         in this prefix tree and the node's depth, or if the given string is not
         completely found, return None and the depth of the last matching node.
         Search is done iteratively with a loop starting from the root node."""
-        # Match the empty string
-        if len(string) == 0:
-            return self.root, 0
-        # Start with the root node
+
+        depth = 0
         node = self.root
-        # TODO
+
+        # Match the empty string
+        if len(word) == 0:
+            return node, depth
+
+        for char in word:
+            if char in node.children:
+                node = node.get_child(char)
+                depth += 1
+            else:
+                node = None
+                break
+        return node, depth
 
     def complete(self, prefix):
         """Return a list of all strings stored in this prefix tree that start
