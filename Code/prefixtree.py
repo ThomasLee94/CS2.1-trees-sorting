@@ -45,8 +45,6 @@ class PrefixTree:
 
         node, _ = self._find_node(word)
 
-        print(f"NODE IN CONTAINS: {node}")
-
         if node is not None and node.terminal:
             return True
 
