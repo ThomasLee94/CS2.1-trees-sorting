@@ -233,7 +233,7 @@ class PrefixTreeTest(unittest.TestCase):
         assert tree.complete('Y') == []
         assert tree.complete('Z') == []
 
-    def test_strings(self):
+    def test_strings(self, prefix):
         tree = PrefixTree()
         input_strings = []  # Strings that have been inserted into the tree
         for string in ['ABC', 'ABD', 'A', 'XYZ']:  # Strings to be inserted
@@ -241,7 +241,7 @@ class PrefixTreeTest(unittest.TestCase):
             tree.insert(string)
             input_strings.append(string)
             # Verify tree can retrieve all strings that have been inserted
-            tree_strings = tree.strings()
+            tree_strings = tree.strings(prefix)
             assert len(tree_strings) == len(input_strings)  # Check length only
             self.assertCountEqual(tree_strings, input_strings)  # Ignore order
 
