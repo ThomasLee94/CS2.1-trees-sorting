@@ -43,9 +43,14 @@ class PrefixTree:
     def contains(self, word: str) -> bool:
         """Return True if this prefix tree contains the given string."""
 
-        node_data = self._find_node(word)
+        node, _ = self._find_node(word)
 
-        return node_data is not None
+        print(f"NODE IN CONTAINS: {node}")
+
+        if node is not None and node.terminal:
+            return True
+
+        return False
 
     def insert(self, word: str):
         """Insert the given string into this prefix tree."""
@@ -78,7 +83,7 @@ class PrefixTree:
 
         for char in word:
             if char in node.children:
-                node = node.get_child(char)
+                node = node.children[char]
                 depth += 1
             else:
                 node = None
@@ -105,10 +110,8 @@ class PrefixTree:
         all_strings = list()
 
         for child in self.root.children.values():
-            print(child)
             if child is not None:
                 self._traverse(child, child.character, all_strings.append)
-        print(all_strings)
         return all_strings
 
     def _traverse(self, node: object, prefix: str, visit):
