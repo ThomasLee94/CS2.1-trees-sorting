@@ -107,7 +107,7 @@ class PrefixTree:
         for child in self.root.children.values():
             print(child)
             if child is not None:
-                self._traverse(child, '', all_strings.append)
+                self._traverse(child, child.character, all_strings.append)
         print(all_strings)
         return all_strings
 
