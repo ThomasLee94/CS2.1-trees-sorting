@@ -110,6 +110,9 @@ class PrefixTreeTest(unittest.TestCase):
         assert tree.root.has_child('A') is True
         # Verify node 'A' again
         assert node_A.character == 'A'
+        print(node_A)
+        print(node_A.terminal)
+        print(node_A.is_terminal())
         assert node_A.is_terminal() is True  # Node 'A' is now terminal
         assert node_A.num_children() == 1  # Node 'A' still has one child
         assert node_A.has_child('B') is True  # Node 'B' is still its child
@@ -233,7 +236,7 @@ class PrefixTreeTest(unittest.TestCase):
         assert tree.complete('Y') == []
         assert tree.complete('Z') == []
 
-    def test_strings(self, prefix):
+    def test_strings(self):
         tree = PrefixTree()
         input_strings = []  # Strings that have been inserted into the tree
         for string in ['ABC', 'ABD', 'A', 'XYZ']:  # Strings to be inserted
@@ -241,7 +244,7 @@ class PrefixTreeTest(unittest.TestCase):
             tree.insert(string)
             input_strings.append(string)
             # Verify tree can retrieve all strings that have been inserted
-            tree_strings = tree.strings(prefix)
+            tree_strings = tree.strings()
             assert len(tree_strings) == len(input_strings)  # Check length only
             self.assertCountEqual(tree_strings, input_strings)  # Ignore order
 

@@ -22,9 +22,7 @@ class PrefixTreeNode:
     def is_terminal(self) -> bool:
         """Return True if this prefix tree node terminates a string."""
 
-        if len(self.children) == 0:
-            return True
-        return False
+        return self.terminal
 
     def num_children(self) -> int:
         """Return the number of children nodes this prefix tree node has."""

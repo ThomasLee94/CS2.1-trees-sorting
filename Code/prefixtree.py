@@ -54,12 +54,12 @@ class PrefixTree:
 
         for letter in word:
             # case: if the letter does not exist as a child from current node
-            if not node.has_child(letter):
+            if letter not in node.children:
                 # add child node to current node
                 new_child_node = PrefixTreeNode(letter)
                 node.add_child(letter, new_child_node)
             # traverse down
-            node = node.get_child(letter)
+            node = node.children[letter]
         # set node terminal to True at the end of word iteration
         node.terminal = True
 
@@ -99,20 +99,27 @@ class PrefixTree:
 
         return completions
 
-    def strings(self, prefix: str) -> [str]:
+    def strings(self) -> [str]:
         """Return a list of all strings stored in this prefix tree."""
 
-        return self.complete(prefix)
+        all_strings = list()
+
+        for child in self.root.children.values():
+            print(child)
+            if child is not None:
+                self._traverse(child, '', all_strings.append)
+        print(all_strings)
+        return all_strings
 
     def _traverse(self, node: object, prefix: str, visit):
         """Traverse this prefix tree with recursive depth-first traversal.
         Start at the given node and visit each node with the given function."""
 
-        # execute anonymous func if it is terminal
+        # execute visit if it is terminal
         if node.is_terminal():
             visit(prefix)
 
-        for _, child in node.children:
+        for child in node.children.values():
             # concat chars
             self._traverse(child, prefix + child.character, visit)
 
