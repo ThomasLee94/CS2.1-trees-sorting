@@ -55,9 +55,9 @@ class PrefixTree:
 
         node, _ = self._find_node(word)
 
-        # case: node already exists & is a terminal
-        if node is not None and node.terminal:
-            return
+        # # case: node already exists & is a terminal
+        # if node is not None and node.terminal:
+        #     return
 
         node = self.root
 
@@ -105,11 +105,20 @@ class PrefixTree:
         # init node & depth
         node, _ = self._find_node(word_or_prefix)
 
+        # case: word_or_string is already a completed word
+        if node.is_terminal():
+            completions.append(word_or_prefix)
+
+        if node is not None and node.is_terminal:
+            completions.append(word_or_prefix)
+
         if node is not None:
             self._traverse(node, word_or_prefix, completions.append)
         else:
-            raise ValueError("Node starting with given prefix does not exist")
+            # raise ValueError("Node starting with given prefix does not exist")
+            return completions
 
+        print(completions)
         return completions
 
     def strings(self) -> [str]:
