@@ -22,7 +22,7 @@ class PrefixTree:
         """Initialize this prefix tree and insert the given strings, if any."""
         # Create a new root node with the start character
         self.root = PrefixTreeNode(PrefixTree.START_CHARACTER)
-        # Count the number of strings inserted into the tree
+        # Count the number of complete words inserted into the tree
         self.size = 0
         # Insert each string, if any were given
         if strings is not None:
@@ -36,7 +36,7 @@ class PrefixTree:
     def is_empty(self) -> bool:
         """Return True if this prefix tree is empty (contains no strings)."""
 
-        if self.root is None:
+        if self.size == 0:
             return True
         return False
 
@@ -53,6 +53,12 @@ class PrefixTree:
     def insert(self, word: str):
         """Insert the given string into this prefix tree."""
 
+        node, _ = self._find_node(word)
+
+        # case: node already exists & is a terminal
+        if node is not None and node.terminal:
+            return
+
         node = self.root
 
         for letter in word:
@@ -65,6 +71,7 @@ class PrefixTree:
             node = node.children[letter]
         # set node terminal to True at the end of word iteration
         node.terminal = True
+        self.size += 1
 
     def _find_node(self, word: str) -> (object, int):
         """Return a tuple containing the node that terminates the given string
@@ -88,7 +95,7 @@ class PrefixTree:
                 break
         return node, depth
 
-    def complete(self, prefix: str) -> [str]:
+    def complete(self, word_or_prefix: str) -> [str]:
         """Return a list of all strings stored in this prefix tree that start
         with the given prefix string."""
 
@@ -96,9 +103,12 @@ class PrefixTree:
         completions = []
 
         # init node & depth
-        node, _ = self._find_node(prefix)
+        node, _ = self._find_node(word_or_prefix)
 
-        self._traverse(node, prefix, completions.append)
+        if node is not None:
+            self._traverse(node, word_or_prefix, completions.append)
+        else:
+            raise ValueError("Node starting with given prefix does not exist")
 
         return completions
 
