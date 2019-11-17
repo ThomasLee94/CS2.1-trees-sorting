@@ -55,13 +55,14 @@ class PrefixTree:
 
         node, _ = self._find_node(word)
 
-        # # case: node already exists & is a terminal
-        # if node is not None and node.terminal:
-        #     return
+        # case: node already exists & is a terminal
+        if node and node.terminal:
+            return
 
         node = self.root
 
         for letter in word:
+            letter = letter
             # case: if the letter does not exist as a child from current node
             if letter not in node.children:
                 # add child node to current node
@@ -71,6 +72,7 @@ class PrefixTree:
             node = node.children[letter]
         # set node terminal to True at the end of word iteration
         node.terminal = True
+
         self.size += 1
 
     def _find_node(self, word: str) -> (object, int):
