@@ -114,13 +114,14 @@ class PrefixTree:
         # case: prefix is not terminal, traversal required
         # if node is not None:
         # elif node is not node.is_terminal():
-        else:
-            for child in node.children.values():
-                self._traverse(child, word_or_prefix, completions.append)
+        # else:
+        print(f" NODE CHAR: {node.character}")
+        for child in node.children.values():
+            self._traverse(child, word_or_prefix, completions.append)
         # else:
         #     raise ValueError("Node starting with given prefix does not exist")
 
-        # print(completions)
+        print(completions)
         return completions
 
     def strings(self) -> [str]:
@@ -139,7 +140,8 @@ class PrefixTree:
 
         # execute visit if it is terminal
         if node.is_terminal():
-            print(f"{prefix},{prefix + node.character}")
+            # print(f"{prefix},{prefix + node.character}")
+            # visit(prefix + node.character)
             visit(prefix)
 
         for child_node in node.children.values():
