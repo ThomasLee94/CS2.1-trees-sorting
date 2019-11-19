@@ -117,7 +117,8 @@ class PrefixTree:
         # else:
         print(f" NODE CHAR: {node.character}")
         for child in node.children.values():
-            self._traverse(child, word_or_prefix, completions.append)
+            self._traverse(child, word_or_prefix +
+                           child.character, completions.append)
         # else:
         #     raise ValueError("Node starting with given prefix does not exist")
 
@@ -140,9 +141,10 @@ class PrefixTree:
 
         # execute visit if it is terminal
         if node.is_terminal():
-            # print(f"{prefix},{prefix + node.character}")
-            # visit(prefix + node.character)
-            visit(prefix)
+            print(
+                f"PREFIX: {prefix}, PREFIX + NODE CHAR: {prefix + node.character}")
+            visit(prefix + node.character)
+            # visit(prefix)
 
         for child_node in node.children.values():
             # concat chars
