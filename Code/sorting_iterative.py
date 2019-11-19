@@ -86,6 +86,9 @@ def insertion_sort(items: [int]):
             list of ints in ascending order.
     """
 
+    # runtime = O(n^2)
+    # memory = O(1)
+
     for i in range(1, len(items)):
         # set current value to index i (1)
         current_val = items[i]

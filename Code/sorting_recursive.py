@@ -57,8 +57,8 @@ def split_sort_merge(items: [int]) -> [int]:
             A list in ascending sorted order.
 
     """
-    # Running time: ??? Why and under what conditions?
-    # Memory usage: ??? Why and under what conditions?
+    # Running time: O(n/2 ^ 2), if bubble sort is used
+    # Memory usage: O(n)
 
     # split list into rough halves
     middle_index = len(items) // 2
@@ -157,9 +157,12 @@ def quick_sort(items: [int], low=0, high=None):
 
     """
 
-    # Best case running time: ??? Why and under what conditions?
-    # Worst case running time: ??? Why and under what conditions?
-    # Memory usage: ??? Why and under what conditions?
+    # Best case running time: O(n*log(n)). The input looks weird, but lists that are more
+    # shuffled or random will sort quicker.
+    # Worst case running time: O(n^2) if the list is in sorted or reverse sorted order.
+    # Best case memory usage: O(log(n)) memory is consant on each iteration and best case
+    # takes log(n) iterations
+    # Worse case memory usage: O(n) when the most iterations occur, list is sorted.
 
     # case: if high and low range bounds have default values
     if high is None:
