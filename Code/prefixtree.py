@@ -62,7 +62,6 @@ class PrefixTree:
         node = self.root
 
         for letter in word:
-            letter = letter
             # case: if the letter does not exist as a child from current node
             if letter not in node.children:
                 # add child node to current node
