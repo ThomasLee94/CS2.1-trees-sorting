@@ -14,7 +14,7 @@ def merge(items_1: [int], items_2: [int]) -> [int]:
       Output:
           A merged list of sorted ints.
     """
-    # Running time: O(n*m)
+    # Running time: O(n+m)
     # Memory usage: O(n+m)
 
     merged_items = list()
