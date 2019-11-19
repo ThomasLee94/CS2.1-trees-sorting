@@ -107,22 +107,18 @@ class PrefixTree:
         # init node & depth
         node, _ = self._find_node(word_or_prefix)
 
+        # case: prefix does not exist
+        if node is None:
+            return completions
+
         # case: word_or_string is already a completed word
         if node.is_terminal():
             completions.append(word_or_prefix)
 
-        # case: prefix is not terminal, traversal required
-        # if node is not None:
-        # elif node is not node.is_terminal():
-        # else:
-        print(f" NODE CHAR: {node.character}")
         for child in node.children.values():
             self._traverse(child, word_or_prefix +
                            child.character, completions.append)
-        # else:
-        #     raise ValueError("Node starting with given prefix does not exist")
 
-        print(completions)
         return completions
 
     def strings(self) -> [str]:
@@ -143,8 +139,8 @@ class PrefixTree:
         if node.is_terminal():
             print(
                 f"PREFIX: {prefix}, PREFIX + NODE CHAR: {prefix + node.character}")
-            visit(prefix + node.character)
-            # visit(prefix)
+            # visit(prefix + node.character)
+            visit(prefix)
 
         for child_node in node.children.values():
             # concat chars
