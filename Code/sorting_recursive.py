@@ -145,7 +145,7 @@ def partition(items: [int], low: int, high: int) -> int:
     return first_index - 1
 
 
-def quick_sort(items: [int], low=None, high=None):
+def quick_sort(items: [int], low=0, high=None):
     """
         Sort given items in place by partitioning items in range `[low...high]`
         around a pivot item and recursively sorting each remaining sublist range.

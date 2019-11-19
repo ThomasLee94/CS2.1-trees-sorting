@@ -216,12 +216,15 @@ def get_sort_function():
 
 # If using PyTest, change this variable to the sort function you want to test
 # sort = selection_sort
-sort = merge_sort
+sort = quick_sort
 
-if sort is merge_sort:
-    def merge_impure(lst):
-        lst[::] = merge_sort(lst)
-sort = merge_impure
+if sort([1]) is not None:
+    fruitful_sort = sort
+
+    def sort_impure(lst):
+        lst[::] = fruitful_sort(lst)
+
+    sort = sort_impure
 
 
 if __name__ == '__main__':
