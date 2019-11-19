@@ -115,6 +115,7 @@ class PrefixTree:
         if node.is_terminal():
             completions.append(word_or_prefix)
 
+        # traverse through prefix tree & append all terminal words
         for child in node.children.values():
             self._traverse(child, word_or_prefix +
                            child.character, completions.append)
@@ -137,8 +138,6 @@ class PrefixTree:
 
         # execute visit if it is terminal
         if node.is_terminal():
-            print(
-                f"PREFIX: {prefix}, PREFIX + NODE CHAR: {prefix + node.character}")
             # visit(prefix + node.character)
             visit(prefix)
 
