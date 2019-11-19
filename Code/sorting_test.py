@@ -62,7 +62,7 @@ class IsSortedTest(unittest.TestCase):
         assert is_sorted([(3, 'A'), (3, 'B')]) is True  # Second item sorted
         # TODO: Write more positive test cases with assert is True statements
         assert is_sorted([(1, 'X'), (4, 'U'), (6, 'W')]) is True
-        assert is_sorted([('X', 1), ('U', 4), ('W', 6)]) is True
+        # assert is_sorted([('X', 1), ('U', 4), ('W', 6)]) is True
 
     def test_is_sorted_on_unsorted_tuples(self):
         # Negative test cases (counterexamples) with lists of unsorted tuples
@@ -74,7 +74,7 @@ class IsSortedTest(unittest.TestCase):
         assert is_sorted([('A', 5), ('A', 3)]) is False  # Second item unsorted
         # TODO: Write more negative test cases with assert is False statements
         assert is_sorted([('D', 3), ('E', 4), ('B', 5)]) is False
-        assert is_sorted([(3, 'D'), (4, 'E'), (5, 'B')]) is False
+        # assert is_sorted([(3, 'D'), (4, 'E'), (5, 'B')]) is False
 
 
 class IntegerSortTest(unittest.TestCase):
