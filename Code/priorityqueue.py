@@ -34,7 +34,7 @@ class PriorityQueue(object):
     def front(self):
         """Return the item at the front of this priority queue without removing
         it, or None if this priority queue is empty."""
-        if self.size() == 0:
+        if self.length() == 0:
             return None
         # TODO: Return minimum item from heap
         return self.heap.get_min()[1]
