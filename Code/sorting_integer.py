@@ -12,6 +12,31 @@ def counting_sort(numbers):
     # TODO: Loop over counts and append that many numbers into output list
     # FIXME: Improve this to mutate input instead of creating new output list
 
+    min_ = min(numbers)
+    max_ = max(numbers)
+
+    number_list = list()
+    for index in range(min_, max_ + 1):
+        number_list.append(0)
+
+    for num in numbers:
+        number_list[num - min_] += 1
+
+    output = []
+    for index, value in enumerate(number_list):
+        if value == 0:
+            continue
+
+        num = index + min_
+        output.extend([num] * value)
+
+    return output
+
+
+ints = [6, 9, 8, 1, 4, 2, 20, 7]
+sorted_nums = counting_sort(ints)
+print(sorted(ints))
+
 
 def bucket_sort(numbers, num_buckets=10):
     """Sort given numbers by distributing into buckets representing subranges,
