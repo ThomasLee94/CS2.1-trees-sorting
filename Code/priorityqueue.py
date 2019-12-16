@@ -15,7 +15,7 @@ class PriorityQueue(object):
 
     def __repr__(self):
         """Return a string representation of this priority queue."""
-        return 'PriorityQueue({} items, front={})'.format(self.size(), self.front())
+        return 'PriorityQueue({} items, front={})'.format(self.length(), self.front())
 
     def is_empty(self):
         """Return True if this priority queue is empty, or False otherwise."""
