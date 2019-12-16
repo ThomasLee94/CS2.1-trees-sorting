@@ -34,7 +34,6 @@ def counting_sort(numbers):
 
 
 ints = [6, 9, 8, 1, 4, 2, 20, 7]
-sorted_nums = counting_sort(ints)
 print(sorted(ints))
 
 
