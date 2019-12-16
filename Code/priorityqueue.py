@@ -51,7 +51,9 @@ class PriorityQueue(object):
         """Remove and return the item at the front of this priority queue,
         and insert the given item in order according to the given priority.
         This method is more efficient than calling dequeue and then enqueue."""
-        if self.size() == 0:
+        if self.length() == 0:
             raise ValueError('Priority queue is empty and has no front item')
         # TODO: Replace and return minimum item from heap
-        # ...
+        self.heap.items[0], popped_item = (priority, item), self.heap.items[0]
+        self.heap._bubble_down(0)
+        return popped_item[1]
