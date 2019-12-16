@@ -216,7 +216,7 @@ def get_sort_function():
 
 # If using PyTest, change this variable to the sort function you want to test
 # sort = selection_sort
-sort = quick_sort
+sort = bubble_sort
 
 if sort([1]) is not None:
     fruitful_sort = sort
