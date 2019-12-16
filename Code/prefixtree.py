@@ -133,7 +133,6 @@ class PrefixTree:
 
     def _traverse(self, node: object, prefix: str, visit):
         """Traverse this prefix tree with recursive depth-first traversal.
-<<<<<<< HEAD
         Start at the given node and visit each node with the given function."""
 
         # execute visit if it is terminal
@@ -144,13 +143,6 @@ class PrefixTree:
         for child_node in node.children.values():
             # concat chars
             self._traverse(child_node, prefix + child_node.character, visit)
-
-
-== == == =
-        Start at the given node with the given prefix representing its path in
-        this prefix tree and visit each node with the given visit function."""
-        # TODO
->>>>>>> bd276286571d0e85cb491d599b0a637cef827730
 
 
 def create_prefix_tree(strings):
